@@ -37,7 +37,7 @@ namespace detail
 
       PyObject* operator()(T x) const
       {
-          dispatch(x, is_pointer<T>());
+          dispatch(std::move(x), is_pointer<T>());
           return none();
       }
 
@@ -45,8 +45,7 @@ namespace detail
       template <class U>
       void dispatch(U* x, mpl::true_) const
       {
-          std::auto_ptr<U> owner(x);
-          dispatch(owner, mpl::false_());
+          dispatch(std::unique_ptr<U>(x), mpl::false_());
       }
       
       template <class Ptr>
@@ -58,7 +57,7 @@ namespace detail
 
           void* memory = holder::allocate(this->m_self, offsetof(instance_t, storage), sizeof(holder));
           try {
-              (new (memory) holder(x))->install(this->m_self);
+              (new (memory) holder(std::move(x)))->install(this->m_self);
           }
           catch(...) {
               holder::deallocate(this->m_self, memory);

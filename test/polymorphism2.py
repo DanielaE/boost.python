@@ -90,5 +90,5 @@ if __name__ == "__main__":
    from polymorphism2_ext import *
    test()
 else:
-   from polymorphism2_auto_ptr_ext import *
+   from polymorphism2_unique_ptr_ext import *
    

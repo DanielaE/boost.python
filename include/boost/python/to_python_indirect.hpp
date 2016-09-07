@@ -87,7 +87,7 @@ namespace detail
 # if defined(__ICL) && __ICL < 600 
           typedef boost::shared_ptr<T> smart_pointer;
 # else 
-          typedef std::auto_ptr<T> smart_pointer;
+          typedef std::unique_ptr<T> smart_pointer;
 # endif
           typedef objects::pointer_holder<smart_pointer, T> holder_t;
 

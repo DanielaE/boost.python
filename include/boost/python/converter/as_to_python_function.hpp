@@ -37,7 +37,7 @@ struct as_to_python_function
         // modify its argument is if T is an auto_ptr-like type. There
         // is still a const-correctness hole w.r.t. auto_ptr<U> const,
         // but c'est la vie.
-        return ToPython::convert(*const_cast<T*>(static_cast<T const*>(x)));
+        return ToPython::convert(std::move(*const_cast<T*>(static_cast<T const*>(x))));
     }
 #ifndef BOOST_PYTHON_NO_PY_SIGNATURES
     static PyTypeObject const * get_pytype() { return ToPython::get_pytype(); }

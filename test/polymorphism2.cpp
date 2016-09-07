@@ -15,8 +15,8 @@
 
 #include <memory>
 
-#ifdef HELD_BY_AUTO_PTR
-# define HELD_PTR(X) , std::auto_ptr< X >
+#ifdef HELD_BY_UNIQUE_PTR
+# define HELD_PTR(X) , std::unique_ptr< X >
 #else
 # define HELD_PTR(X)
 #endif 
@@ -131,8 +131,8 @@ C& getCCppObj ()
 
 A* pass_a(A* x) { return x; }
 
-#ifdef HELD_BY_AUTO_PTR
-BOOST_PYTHON_MODULE_INIT(polymorphism2_auto_ptr_ext)
+#ifdef HELD_BY_UNIQUE_PTR
+BOOST_PYTHON_MODULE_INIT(polymorphism2_unique_ptr_ext)
 #else
 BOOST_PYTHON_MODULE_INIT(polymorphism2_ext)
 #endif 
