@@ -19,6 +19,11 @@
 // lookups using explicit specializations of arg_to_python and
 // result_to_python.
 
+#if defined(_MSC_VER)
+#pragma warning(push)
+#pragma warning(disable: 4244) // narrowing conversion
+#endif
+
 namespace boost { namespace python {
 
 namespace converter
@@ -186,5 +191,9 @@ namespace converter
 }
 
 }} // namespace boost::python::converter
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#endif
 
 #endif // BUILTIN_CONVERTERS_DWA2002124_HPP

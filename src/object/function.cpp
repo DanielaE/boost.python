@@ -749,7 +749,7 @@ object function_object(
     return python::object(
         python::detail::new_non_null_reference(
             new function(
-                f, keywords.first, keywords.second - keywords.first)));
+                f, keywords.first, static_cast<unsigned>(keywords.second - keywords.first))));
 }
 
 object function_object(py_function const& f)
