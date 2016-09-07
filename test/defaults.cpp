@@ -15,6 +15,10 @@
 # include <iostream> // works around a KCC intermediate code generation bug
 #endif
 
+#if defined(_MSC_VER)
+#pragma warning(disable: 4709) // comma operator within array index expression
+#endif
+
 using namespace boost::python;
 namespace bpl = boost::python;
 

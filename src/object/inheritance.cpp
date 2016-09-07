@@ -330,13 +330,13 @@ namespace
 
           // expand it:
           smart_graph::out_edges_t edges = out_edges(s.first, g.topology());
-          for (cast_graph::out_edge_iterator p = edges.first
+          for (cast_graph::out_edge_iterator it = edges.first
                    , finish = edges.second
-                   ; p != finish
-                   ; ++p
+                   ; it != finish
+                   ; ++it
               )
           {
-              edge_t e = *p;
+              edge_t e = *it;
               q.push(q_elt(
                          d[target(e, g.topology())]
                          , dst_address
