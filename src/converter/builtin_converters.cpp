@@ -433,13 +433,13 @@ namespace
           std::wstring result(::PyObject_Length(intermediate), L' ');
           if (!result.empty())
           {
-              int err = PyUnicode_AsWideChar(
+              int err = static_cast<int>(PyUnicode_AsWideChar(
 #if PY_VERSION_HEX < 0x03020000
                   (PyUnicodeObject *)
 #endif
                     intermediate
                 , &result[0]
-                , result.size());
+                , result.size()));
 
               if (err == -1)
                   throw_error_already_set();
