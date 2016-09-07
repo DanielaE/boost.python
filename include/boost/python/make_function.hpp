@@ -16,6 +16,11 @@
 # include <boost/mpl/size.hpp>
 # include <boost/mpl/int.hpp>
 
+#if defined(_MSC_VER)
+#pragma warning(push)
+#pragma warning(disable: 4100) // unreferenced formal parameter
+#endif
+
 namespace boost { namespace python {
 
 namespace detail
@@ -149,5 +154,8 @@ object make_function(
 
 }} 
 
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#endif
 
 #endif // MAKE_FUNCTION_DWA20011221_HPP
