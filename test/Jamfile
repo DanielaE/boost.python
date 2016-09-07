@@ -13,6 +13,8 @@ project /boost/python/test
   : requirements
     <toolset>gcc:<cxxflags>-Wextra
     <target-os>qnxnto:<library>socket
+    <toolset>msvc:<cxxflags>"/wd5033"
+    <toolset>msvc:<define>_HAS_AUTO_PTR_ETC=1
   ;
 
 local PY = ;

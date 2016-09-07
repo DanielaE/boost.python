@@ -75,7 +75,7 @@ class list : public detail::list_base
     template <class T>
     long count(T const& value) const
     {
-        return base::count(object(value));
+        return static_cast<long>(base::count(object(value)));
     }
     
     template <class T>
