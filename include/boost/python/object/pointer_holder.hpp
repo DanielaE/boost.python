@@ -107,13 +107,13 @@ struct pointer_holder_back_reference : instance_holder
 
 template <class Pointer, class Value>
 inline pointer_holder<Pointer,Value>::pointer_holder(Pointer p)
-    : m_p(p)
+    : m_p(std::move(p))
 {
 }
 
 template <class Pointer, class Value>
 inline pointer_holder_back_reference<Pointer,Value>::pointer_holder_back_reference(Pointer p)
-    : m_p(p)
+    : m_p(std::move(p))
 {
 }
 

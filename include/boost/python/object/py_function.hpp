@@ -135,7 +135,7 @@ struct py_function
     {}
 
     py_function(py_function const& rhs)
-        : m_impl(rhs.m_impl)
+        : m_impl(std::move(rhs.m_impl))
     {}
 
     PyObject* operator()(PyObject* args, PyObject* kw) const
@@ -164,7 +164,7 @@ struct py_function
     }
     
  private:
-    mutable std::auto_ptr<py_function_impl_base> m_impl;
+    mutable std::unique_ptr<py_function_impl_base> m_impl;
 };
 
 }}} // namespace boost::python::objects

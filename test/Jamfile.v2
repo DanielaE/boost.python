@@ -90,14 +90,12 @@ bpl-test crossmod_exception
 [ bpl-test andreas_beyer ]
 [ bpl-test wrapper_held_type ]
 
-[ bpl-test polymorphism2_auto_ptr 
-  : polymorphism2_auto_ptr.py polymorphism2.py polymorphism2_auto_ptr.cpp 
+[ bpl-test polymorphism2_unique_ptr 
+  : polymorphism2_unique_ptr.py polymorphism2.py polymorphism2_unique_ptr.cpp 
 ]
 
 [ bpl-test polymorphism ]
 [ bpl-test polymorphism2 ]
-
-[ bpl-test auto_ptr ]
 
 [ bpl-test minimal ]
 [ bpl-test args ]

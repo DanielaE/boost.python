@@ -21,7 +21,7 @@ struct make_ptr_instance
     template <class Arg>
     static inline Holder* construct(void* storage, PyObject*, Arg& x)
     {
-        return new (storage) Holder(x);
+        return new (storage) Holder(std::move(x));
     }
     
     template <class Ptr>
