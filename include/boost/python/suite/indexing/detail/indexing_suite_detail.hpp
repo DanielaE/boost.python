@@ -602,7 +602,7 @@ namespace boost { namespace python { namespace detail {
             else {
                 long from = extract<long>( slice->start);
                 if (from < 0) // Negative slice index
-                    from += max_index;
+                    from += static_cast<long>(max_index);
                 if (from < 0) // Clip lower bounds to zero
                     from = 0;
                 from_ = boost::numeric_cast<Index>(from);
@@ -616,7 +616,7 @@ namespace boost { namespace python { namespace detail {
             else {
                 long to = extract<long>( slice->stop);
                 if (to < 0)
-                    to += max_index;
+                    to += static_cast<long>(max_index);
                 if (to < 0)
                     to = 0;
                 to_ = boost::numeric_cast<Index>(to);

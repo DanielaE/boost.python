@@ -9,6 +9,11 @@
 #include <boost/python/return_internal_reference.hpp>
 #include <boost/python/class.hpp>
 
+#ifdef _MSC_VER
+# pragma warning(disable: 4709) // comma operator within array index expression
+
+#endif
+
 using namespace boost::python;
 
 int a_instances = 0;

@@ -34,6 +34,11 @@
 #  pragma warning (disable : 4251) // disable exported dll function
 #  pragma warning (disable : 4800) //'int' : forcing value to bool 'true' or 'false'
 #  pragma warning (disable : 4275) // non dll-interface class
+#  pragma warning (disable : 4127) // conditional expression is constant
+#  pragma warning (disable : 4121) // alignment of a member was sensitive to packing
+#  pragma warning (disable : 4505) // unreferenced local function has been removed
+#  pragma warning (disable : 4702) // unreachable code
+#  pragma warning (disable : 4512) // assignment operator could not be generated
 
 # elif defined(__ICL) && __ICL < 600 // Intel C++ 5
 
