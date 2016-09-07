@@ -7,6 +7,12 @@
 
 # include <boost/python/detail/type_traits.hpp>
 # include <boost/detail/workaround.hpp>
+
+#if defined(_MSC_VER)
+#pragma warning(push)
+#pragma warning(disable: 4100) // unreferenced formal parameter
+#endif
+
 namespace boost { namespace python { namespace detail { 
 
 template <bool array> struct value_destroyer;
@@ -59,5 +65,9 @@ inline void destroy_referent(void* p, T(*)() = 0)
 }
 
 }}} // namespace boost::python::detail
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#endif
 
 #endif // DESTROY_DWA2002221_HPP
